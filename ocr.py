@@ -2,7 +2,7 @@ import pytesseract
 from PIL import Image
 import cv2
 
-img =cv2.imread('Bild.png', cv2.IMREAD_COLOR)
+img =cv2.imread('Gaszaehler.jpg', cv2.IMREAD_COLOR)
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 gray = cv2.bilateralFilter(gray, 11, 17, 17)
