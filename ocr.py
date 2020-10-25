@@ -1,7 +1,11 @@
 import pytesseract
-#pytesseract.pytesseract.tesseract_cmd = r'/home/pi/.local/lib/python3.7/site-packages/pytesseract'
-#pytesseract.pytesseract.tesseract_cmd = r'/home/pi/.local/bin/pytesseract'
+import cv2
 from PIL import Image
-img =Image.open ('Bild.png')
-text = pytesseract.image_to_string(img, config='')
-print (text)
+
+img =cv2.imread('Gaszaehler.jpg', cv2.IMREAD_COLOR)
+
+gray = cv2.cvtColot(img, cv2.COLOR_BGR2GRAY)
+gray = cv2.bilateralFilter(gray, 11, 17, 17)
+
+test = pytesseract.image_to_string(gray, config='--oem 3 --psm 12')
+print (test)
