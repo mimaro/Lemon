@@ -1,6 +1,6 @@
 import pytesseract
-import cv2
 from PIL import Image
+import cv2
 
 img =cv2.imread('Gaszaehler.jpg', cv2.IMREAD_COLOR)
 
